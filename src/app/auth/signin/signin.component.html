@@ -1,18 +1,18 @@
 <div class="row">
-  <div class="col-xs-12 col-sm-10 col-md-4 offset-sm-1 offset-md-4 text-center">
-    <form class="form-signin">
+  <div class="col-xs-12 col-sm-10 col-md-4 offset-sm-1 offset-md-4">
+    <form class="form-signin" (ngSubmit)="onSubmit(f)" #f="ngForm">
       <br><br><br>
       <h1 class="h3 mb-3 font-weight-normal">Login</h1>
       <label for="email" class="sr-only">Email address</label>
-      <input type="email" id="email" class="form-control" placeholder="Email address" required autofocus>
+      <input type="email" id="email" name="email" class="form-control" placeholder="Email address" ngModel required autofocus>
       <label for="password" class="sr-only">Password</label>
-      <input type="password" id="password" class="form-control" placeholder="Password" required>
+      <input type="password" id="password" name="password" class="form-control" placeholder="Password" ngModel required>
       <div class="checkbox mb-3">
         <label>
           <input type="checkbox" value="remember-me"> Remember me
         </label>
       </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="!f.valid">Sign in</button>
       <p class="mt-5 mb-3 text-muted">GameHub &copy; 2018-2019</p>
     </form>
   </div>

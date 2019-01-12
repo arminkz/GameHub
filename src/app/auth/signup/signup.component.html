@@ -10,7 +10,7 @@
       <input type="password" id="password" name="password" class="form-control" placeholder="Password" ngModel required>
       <input type="password" id="password-confirm" name="password-confirm" class="form-control" placeholder="Confirm Password" ngModel required>
       <br>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up </button>
+      <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="!f.valid">Sign up </button>
       <p class="mt-5 mb-3 text-muted">GameHub &copy; 2018-2019</p>
     </form>
   </div>

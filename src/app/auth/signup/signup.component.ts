@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {NgForm} from '@angular/forms';
-import {ToastrService} from 'ngx-toastr';
 import {AuthService} from '../auth.service';
 
 @Component({
@@ -12,10 +11,6 @@ export class SignupComponent implements OnInit {
   constructor(private auth: AuthService) { }
 
   ngOnInit() {
-  }
-
-  onSignup(form: NgForm) {
-    console.log(form);
   }
 
   onSubmit(form: NgForm) {

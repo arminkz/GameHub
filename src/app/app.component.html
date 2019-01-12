@@ -38,6 +38,9 @@
     </ul>
     <ul class="navbar-nav navbar-right">
       <li class="nav-item" routerLinkActive="active">
+        <button class="btn nav-btn" *ngIf="this.auth.isAuthenticated()" routerLink="/userprofile"></button>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
         <button class="btn nav-btn"  routerLink="/register">Register</button>
       </li>
       <li class="nav-item" routerLinkActive="active">
