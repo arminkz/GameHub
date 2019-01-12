@@ -33,7 +33,7 @@
 }
 
 /* Toggle Styles */
-
+/*
 .nav-pills>li>a {
   border-radius: 0;
 }
@@ -90,8 +90,11 @@
 .fixed-brand {
   width: auto;
 }
+
+*/
 /* Sidebar Styles */
 
+/*
 .sidebar-nav {
   position: absolute;
   top: 0;
@@ -190,3 +193,4 @@
     width: auto;
   }
 }
+*/
