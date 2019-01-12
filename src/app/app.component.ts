@@ -9,7 +9,8 @@ import {AuthService} from './auth/auth.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit, AfterViewInit {
-  constructor(private toastr: ToastrService, private auth: AuthService) {
+  constructor(private toastr: ToastrService,
+              private auth: AuthService) {
     firebase.initializeApp({
       apiKey: 'AIzaSyDp2riwIxmw8iYNpjp24C9nqexFB4hFVEk',
       authDomain: 'gamehub-beta.firebaseapp.com'
@@ -21,5 +22,9 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     // this.toastr.info('welcome', 'GameHub Beta !');
+  }
+
+  onLogout() {
+    this.auth.signoutUser();
   }
 }
