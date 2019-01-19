@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {User} from './user.model';
+import {environment} from '../../environments/environment';
 
 @Component({
   selector: 'app-user',
@@ -11,7 +12,7 @@ export class UserComponent implements OnInit {
   constructor() { }
   @Input() user: User;
 
-  apiImageUrl = 'http://localhost:56608/UserImage/';
+  apiImageUrl = environment.apiUrl + '/UserImage/';
 
   ngOnInit() {
   }
