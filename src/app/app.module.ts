@@ -18,6 +18,7 @@ import {AuthService} from './auth/auth.service';
 import { UserComponent } from './user/user.component';
 import { AdminpanelComponent } from './adminpanel/adminpanel.component';
 import {HttpClientModule} from '@angular/common/http';
+import {UserService} from './user/user.service';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import {HttpClientModule} from '@angular/common/http';
     AppRoutingModule,
   ],
   providers: [
-    AuthService
+    AuthService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

@@ -7,16 +7,18 @@ import {User} from './user.model';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-  @Input() user: User;
 
   constructor() { }
+  @Input() user: User;
+
+  apiImageUrl = 'http://localhost:56608/UserImage/';
 
   ngOnInit() {
   }
 
   getImageUrl() {
-    if (this.user.profilePicUrl === '') { return 'http://192.168.1.5:56608/UserImage/1.png'; }
-    return this.user.profilePicUrl;
+    if (this.user.profilePicUrl == null || this.user.profilePicUrl === '') { return this.apiImageUrl + 'avatar.png'; }
+    return this.apiImageUrl + this.user.profilePicUrl;
   }
 
 }

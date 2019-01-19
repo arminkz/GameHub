@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import {User} from '../user/user.model';
+import {UserService} from '../user/user.service';
 
 @Component({
   selector: 'app-users',
@@ -8,15 +9,17 @@ import {User} from '../user/user.model';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
+  users: User[] = [];
 
-  users: User[] = [
-    new User('arminkz', 'arminkz@live.com', ''),
-    new User('icesnow', 'ggwp@steam.com', '')
-  ];
-
-  constructor() { }
+  constructor(private usrs: UserService ) { }
 
   ngOnInit() {
+    this.usrs.getUsers().subscribe((data) => {
+      for (const item of data) {
+        this.users.push(new User(item['DisplayName'], item['Email'], item['PicUrl']));
+      }
+      console.log(data);
+    });
   }
 
 }
