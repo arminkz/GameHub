@@ -1,7 +1,7 @@
 <div class="media border p-3">
-  <img src="/assets/images/avatar.png" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+  <img [src]="getImageUrl()" alt="User Image" class="mr-3 mt-3 rounded-circle" style="width:60px;">
   <div class="media-body">
-    <h4>Armin Kazemi <small><i class="green">Online</i></small></h4>
-    <p>Playing Roll a Dice !</p>
+    <h4>{{user.displayName}} <small><i class="green">Online</i></small></h4>
+    <p>{{user.email}}</p>
   </div>
 </div>
