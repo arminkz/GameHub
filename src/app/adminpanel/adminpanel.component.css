@@ -1,0 +1,21 @@
+.row{
+  padding: 30px;
+}
+
+.rating{
+  color: #AAAAAA;
+  font-size: 26px;
+}
+
+.rating .checked{
+  color: orange;
+}
+
+.admin-options{
+  padding: 10px;
+}
+
+.admin-options .btn{
+  margin-left: 10px;
+  margin-right: 10px;
+}

@@ -15,6 +15,9 @@ import { PlayComponent } from './play/play.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import {AuthService} from './auth/auth.service';
+import { UserComponent } from './user/user.component';
+import { AdminpanelComponent } from './adminpanel/adminpanel.component';
+import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -27,12 +30,15 @@ import {AuthService} from './auth/auth.service';
     DesignComponent,
     PlayComponent,
     SignupComponent,
-    SigninComponent
+    SigninComponent,
+    UserComponent,
+    AdminpanelComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    HttpClientModule,
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right'
     }),

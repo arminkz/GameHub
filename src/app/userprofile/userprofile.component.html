@@ -1,3 +1,31 @@
-<p>
-  userprofile works!
-</p>
+<div class="row">
+  <div class="col-xs-12 col-sm-10 col-md-8 offset-sm-1 offset-md-2">
+    <br><br>
+    <div class="card">
+      <h5 class="card-header">Profile Picture</h5>
+      <div class="card-body">
+        <h5 class="card-title">Current Profile Picture</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Upload Picture</a>
+      </div>
+    </div>
+    <br>
+    <div class="card">
+      <h5 class="card-header">General Info</h5>
+      <div class="card-body">
+        <form>
+          <label for="display-name">Display Name</label>
+          <input type="text" id="display-name" name="display-name" class="form-control" placeholder="Display Name" ngModel required autofocus>
+          <br>
+          <label for="email">Email address</label>
+          <input type="email" id="email" name="email" class="form-control" placeholder="Email address" ngModel required autofocus>
+          <br>
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" class="form-control" placeholder="Password" ngModel required>
+          <input type="password" id="password-confirm" name="password-confirm" class="form-control" placeholder="Confirm Password" ngModel required>
+          <br>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

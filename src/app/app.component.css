@@ -32,6 +32,14 @@
   background-color: #39187a;
 }
 
+.navbar.gh-navbar .nav-btn.admin-btn{
+  color : yellow;
+}
+
+.notification-center .badge{
+  transform: translateY(-50%);
+}
+
 /* Toggle Styles */
 /*
 .nav-pills>li>a {

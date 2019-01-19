@@ -1,3 +1,30 @@
-<p>
-  design works!
-</p>
+<div class="row">
+  <div class="col-xs-12 col-sm-10 col-md-6 offset-sm-1 offset-md-3">
+    <form class="form-design" (ngSubmit)="onSubmit(f)" #f="ngForm">
+      <br><br><br>
+      <h1 class="h3 mb-3 font-weight-normal">Create a new game :</h1>
+      <label for="final-score">Final Score :</label>
+      <input type="text" id="final-score" name="final-score" class="form-control" placeholder="Final Score" ngModel required autofocus>
+      <br>
+      <label>Number of Dices : &nbsp;</label>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+        <label class="form-check-label" for="inlineRadio1">1</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+        <label class="form-check-label" for="inlineRadio2">2</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+        <label class="form-check-label" for="inlineRadio3">3</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4">
+        <label class="form-check-label" for="inlineRadio4">4</label>
+      </div>
+      <br>
+      <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="!f.valid">Done</button>
+    </form>
+  </div>
+</div>

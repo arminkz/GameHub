@@ -25,12 +25,20 @@ export class AuthService implements OnInit {
     });
   }
 
-  signupUser(email: string, password: string, route: ActivatedRoute) {
+  signupUser(displayName: string, email: string, password: string, route: ActivatedRoute) {
     firebase.auth().createUserWithEmailAndPassword(email, password)
       .then(
         () => {
-          this.toastr.success('Registered Successfully !');
-          this.router.navigate(['../'], {relativeTo: route});
+          firebase.auth().currentUser.updateProfile({displayName: displayName, photoURL: null})
+            .then(
+              () => {
+                this.toastr.success('Registered Successfully !');
+                this.router.navigate(['../'], {relativeTo: route});
+              },
+              (error) => {
+                this.toastr.error(error.message);
+              }
+            );
         },
         error => {
           this.toastr.error(error.message);

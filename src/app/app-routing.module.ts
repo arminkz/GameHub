@@ -9,6 +9,7 @@ import {PlayComponent} from './play/play.component';
 import {DesignComponent} from './design/design.component';
 import {SigninComponent} from './auth/signin/signin.component';
 import {SignupComponent} from './auth/signup/signup.component';
+import {AdminpanelComponent} from './adminpanel/adminpanel.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -18,7 +19,8 @@ const routes: Routes = [
   {path: 'play', component: PlayComponent},
   {path: 'design', component: DesignComponent},
   {path: 'login', component: SigninComponent},
-  {path: 'register', component: SignupComponent}
+  {path: 'register', component: SignupComponent},
+  {path: 'admin', component: AdminpanelComponent}
 ];
 
 @NgModule({
