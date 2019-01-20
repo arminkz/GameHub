@@ -17,8 +17,9 @@ import { SigninComponent } from './auth/signin/signin.component';
 import {AuthService} from './auth/auth.service';
 import { UserComponent } from './user/user.component';
 import { AdminpanelComponent } from './adminpanel/adminpanel.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {UserService} from './user/user.service';
+import {JwtInterceptor} from './auth/jwt.interceptor';
 
 
 @NgModule({
@@ -47,7 +48,12 @@ import {UserService} from './user/user.service';
   ],
   providers: [
     AuthService,
-    UserService
+    UserService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
