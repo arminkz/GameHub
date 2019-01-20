@@ -1,7 +1,8 @@
 <div class="media border p-3">
-  <img [src]="getImageUrl()" alt="User Image" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+  <img [src]="getImageUrl()" alt="User Image" class="mr-3 mt-3 rounded-circle" style="width:80px;">
   <div class="media-body">
     <h4>{{user.name}} <small><i class="green">Online</i></small></h4>
     <p>{{user.email}}</p>
+    <i class="link-btn fa fa-user-plus" (click)="onAddFriend()"></i>
   </div>
 </div>

@@ -1,3 +1,15 @@
 .green{
   color: green;
 }
+
+.link-btn {
+  border: 1px solid black;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 3px;
+}
+
+.link-btn:hover {
+  background-color: black;
+  color: white;
+}

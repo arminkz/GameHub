@@ -1,47 +1,5 @@
 <div class="row">
-  <div class="col-md-3 col-sm-6 col-xs-12">
-    <div class="card">
-      <img class="card-img-top" src="/assets/images/roll-dice.jpeg" alt="">
-      <div class="card-body">
-        <h4 class="card-title">Roll a Dice!</h4>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-3 col-sm-6 col-xs-12">
-    <div class="card">
-      <img class="card-img-top" src="/assets/images/roll-dice.jpeg" alt="">
-      <div class="card-body">
-        <h4 class="card-title">Roll a Dice!</h4>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-3 col-sm-6 col-xs-12">
-    <div class="card">
-      <img class="card-img-top" src="/assets/images/roll-dice.jpeg" alt="">
-      <div class="card-body">
-        <h4 class="card-title">Roll a Dice!</h4>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-3 col-sm-6 col-xs-12">
-    <div class="card">
-      <img class="card-img-top" src="/assets/images/roll-dice.jpeg" alt="">
-      <div class="card-body">
-        <h4 class="card-title">Roll a Dice!</h4>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-3 col-sm-6 col-xs-12">
-    <div class="card">
-      <img class="card-img-top" src="/assets/images/roll-dice.jpeg" alt="">
-      <div class="card-body">
-        <h4 class="card-title">Roll a Dice!</h4>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      </div>
-    </div>
+  <div *ngFor="let gameEl of games" class="col-md-3 col-sm-6 col-xs-12">
+    <app-game [game]="gameEl" (PlayGame)="handlePlayGame($event)" (ShowInfo)="handleShowInfo($event)"></app-game>
   </div>
 </div>

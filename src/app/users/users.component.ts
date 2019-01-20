@@ -22,4 +22,7 @@ export class UsersComponent implements OnInit {
     });
   }
 
+  handleAddFriend($event: any) {
+    alert('must add friend user with id ' + $event);
+  }
 }

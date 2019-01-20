@@ -1,5 +1,5 @@
 <div class="row">
   <div *ngFor="let userEl of users" class="user col-md-3 col-sm-6 col-xs-12">
-    <app-user [user]="userEl"></app-user>
+    <app-user [user]="userEl" (friendAdded)="handleAddFriend($event)"></app-user>
   </div>
 </div>
