@@ -42,7 +42,7 @@ export class AuthService implements OnInit {
           console.log(data);
           this.currentUserSubject.next(data);
           // save in local storage
-          localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
+          localStorage.setItem('currentUser', JSON.stringify(data));
           this.toastr.success('Logged in Successfully !');
         },
         (error) => this.toastr.error(error.message)
@@ -56,6 +56,9 @@ export class AuthService implements OnInit {
     this.toastr.info('Logged out !');
   }
 
+  username(): string {
+    return this.currentUserValue.name;
+  }
 
   signup(name: string, email: string, password: string) {
     const params = new HttpParams()
@@ -73,56 +76,5 @@ export class AuthService implements OnInit {
   hasAdminRights(): boolean {
     return this.currentUserSubject.value.role === 'admin';
   }
-
-
-  signupUser(displayName: string, email: string, password: string, route: ActivatedRoute) {
-    /*firebase.auth().createUserWithEmailAndPassword(email, password)
-      .then(
-        () => {
-          firebase.auth().currentUser.updateProfile({displayName: displayName, photoURL: null})
-            .then(
-              () => {
-                this.toastr.success('Registered Successfully !');
-                this.router.navigate(['../'], {relativeTo: route});
-              },
-              (error) => {
-                this.toastr.error(error.message);
-              }
-            );
-        },
-        error => {
-          this.toastr.error(error.message);
-        }
-      );*/
-  }
-
-  signinUser(email: string, password: string, route: ActivatedRoute) {
-    /*firebase.auth().signInWithEmailAndPassword(email, password)
-      .then(
-        () => {
-          this.toastr.success('Logged in Successfully !');
-          this.router.navigate(['../'], {relativeTo: route});
-        },
-        error => {
-          this.toastr.error(error.message);
-        }
-      );*/
-  }
-
-  signoutUser() {
-    /*firebase.auth().signOut()
-      .then(
-        () => this.toastr.info('Signed Out !'),
-        error => this.toastr.error(error.message)
-      );*/
-  }
-
-
-
-  username(): string {
-    return 'dummy0';
-    /*return firebase.auth().currentUser.email;*/
-  }
-
 
 }

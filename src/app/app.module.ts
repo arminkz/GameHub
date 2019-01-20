@@ -48,12 +48,12 @@ import {JwtInterceptor} from './auth/jwt.interceptor';
   ],
   providers: [
     AuthService,
-    UserService,
+    UserService/*,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptor,
       multi: true
-    }
+    }*/
   ],
   bootstrap: [AppComponent]
 })
