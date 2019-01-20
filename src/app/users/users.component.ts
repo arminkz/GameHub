@@ -16,7 +16,7 @@ export class UsersComponent implements OnInit {
   ngOnInit() {
     this.usrs.getUsers().subscribe((data) => {
       for (const item of data) {
-        this.users.push(new User(item['DisplayName'], item['Email'], item['PicUrl']));
+        this.users.push(new User(item['Id'], item['DisplayName'], item['Email'], item['PicUrl']));
       }
       console.log(data);
     });

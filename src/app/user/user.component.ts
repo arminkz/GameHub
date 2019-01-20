@@ -18,8 +18,8 @@ export class UserComponent implements OnInit {
   }
 
   getImageUrl() {
-    if (this.user.profilePicUrl == null || this.user.profilePicUrl === '') { return this.apiImageUrl + 'avatar.png'; }
-    return this.apiImageUrl + this.user.profilePicUrl;
+    if (this.user.picUrl == null || this.user.picUrl === '') { return this.apiImageUrl + 'avatar.png'; }
+    return this.apiImageUrl + this.user.picUrl;
   }
 
 }

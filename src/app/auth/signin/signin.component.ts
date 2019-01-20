@@ -16,6 +16,6 @@ export class SigninComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    this.auth.signinUser(form.value.email, form.value.password, this.route);
+    this.auth.login(form.value.email, form.value.password);
   }
 }

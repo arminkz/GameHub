@@ -37,7 +37,7 @@
       </li>-->
     </ul>
     <ul class="navbar-nav navbar-right">
-      <li class="nav-item" *ngIf="this.auth.isAuthenticated()" routerLinkActive="active">
+      <li class="nav-item" *ngIf="this.auth.isAuthenticated() && this.auth.hasAdminRights()" routerLinkActive="active">
         <button class="btn nav-btn admin-btn"  routerLink="/admin">
           Admin Panel</button>
       </li>

@@ -1,11 +1,14 @@
 export class User {
-  public displayName: string;
+  public id: number;
+  public name: string;
   public email: string;
-  public profilePicUrl: string;
+  public picUrl: string;
+  public role: string;
 
-  constructor(name: string, email: string, profilePicUrl: string) {
-    this.displayName = name;
+  constructor(id: number, name: string, email: string, picUrl: string) {
+    this.id = id;
+    this.name = name;
     this.email = email;
-    this.profilePicUrl = profilePicUrl;
+    this.picUrl = picUrl;
   }
 }

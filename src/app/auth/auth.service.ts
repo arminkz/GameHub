@@ -1,32 +1,82 @@
 import {ToastrService} from 'ngx-toastr';
 import {Injectable, OnInit} from '@angular/core';
-import * as firebase from 'firebase';
 import {ActivatedRoute, ActivatedRouteSnapshot, Router} from '@angular/router';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
+
+import {User} from '../user/user.model';
+import {BehaviorSubject, Observable} from 'rxjs';
+import {environment} from '../../environments/environment';
+import {map} from 'rxjs/operators';
 
 @Injectable()
 export class AuthService implements OnInit {
-  public authenticated = false;
+  private currentUserSubject: BehaviorSubject<User>;
+  public currentUser: Observable<User>;
 
   constructor(private toastr: ToastrService,
-              private router: Router) {
-    console.log('auth !');
+              private router: Router,
+              private http: HttpClient) {
+    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
+    this.currentUser = this.currentUserSubject.asObservable();
   }
 
   ngOnInit() {
-    const authSelf = this;
-    firebase.auth().onAuthStateChanged(function(user) {
-      if (user) {
-        // User is signed in.
-        authSelf.authenticated = true;
-      } else {
-        // No user is signed in.
-        authSelf.authenticated = true;
-      }
-    });
   }
 
+  isAuthenticated(): boolean {
+    return (this.currentUserValue != null);
+  }
+
+  public get currentUserValue(): User {
+    return this.currentUserSubject.value;
+  }
+
+  login(email: string, password: string) {
+    const params = new HttpParams()
+      .append('email', email)
+      .append('password', password);
+
+    this.http.post<User>(environment.apiUrl + '/api/login/', '' , {params: params} )
+      .subscribe(
+        (data: User) => {
+          console.log(data);
+          this.currentUserSubject.next(data);
+          // save in local storage
+          localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
+          this.toastr.success('Logged in Successfully !');
+        },
+        (error) => this.toastr.error(error.message)
+      );
+  }
+
+  logout() {
+    // remove user from local storage to log user out
+    localStorage.removeItem('currentUser');
+    this.currentUserSubject.next(null);
+    this.toastr.info('Logged out !');
+  }
+
+
+  signup(name: string, email: string, password: string) {
+    const params = new HttpParams()
+      .append('name', name)
+      .append('email', email)
+      .append('password', password);
+
+    this.http.post<User>(environment.apiUrl + '/api/register/', '' , {params: params} )
+      .subscribe(
+        (data) => this.toastr.success('Registered Successfully !'),
+        (error) => this.toastr.error(error.message)
+      );
+  }
+
+  hasAdminRights(): boolean {
+    return this.currentUserSubject.value.role === 'admin';
+  }
+
+
   signupUser(displayName: string, email: string, password: string, route: ActivatedRoute) {
-    firebase.auth().createUserWithEmailAndPassword(email, password)
+    /*firebase.auth().createUserWithEmailAndPassword(email, password)
       .then(
         () => {
           firebase.auth().currentUser.updateProfile({displayName: displayName, photoURL: null})
@@ -43,11 +93,11 @@ export class AuthService implements OnInit {
         error => {
           this.toastr.error(error.message);
         }
-      );
+      );*/
   }
 
   signinUser(email: string, password: string, route: ActivatedRoute) {
-    firebase.auth().signInWithEmailAndPassword(email, password)
+    /*firebase.auth().signInWithEmailAndPassword(email, password)
       .then(
         () => {
           this.toastr.success('Logged in Successfully !');
@@ -56,22 +106,23 @@ export class AuthService implements OnInit {
         error => {
           this.toastr.error(error.message);
         }
-      );
+      );*/
   }
 
   signoutUser() {
-    firebase.auth().signOut()
+    /*firebase.auth().signOut()
       .then(
         () => this.toastr.info('Signed Out !'),
         error => this.toastr.error(error.message)
-      );
+      );*/
   }
 
-  isAuthenticated(): boolean {
-    return firebase.auth().currentUser !== null;
-  }
+
 
   username(): string {
-    return firebase.auth().currentUser.email;
+    return 'dummy0';
+    /*return firebase.auth().currentUser.email;*/
   }
+
+
 }
